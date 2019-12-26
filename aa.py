@@ -48,3 +48,7 @@ class UploadTest(unittest.TestCase):
 '''
 第五修改
 '''
+
+'''
+一次性操作
+'''
