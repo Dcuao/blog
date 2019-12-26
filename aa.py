@@ -30,3 +30,8 @@ class UploadTest(unittest.TestCase):
         self.assertEqual(0, int(entity['error']))
         # 关闭文件
         fo.close()
+
+
+'''
+第二部操作
+'''
