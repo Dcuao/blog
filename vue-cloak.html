@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<!--1.。。导入包 -->
+		<style>
+			[v-cloak]{
+				display:none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- 将来new的Vue 实列 会控制这个元素中的内容 -->
+		<div id="app">
+			<p v-cloak>2222222222{{ msg }}</p>
+			<h4 v-text="msg">222222222222222</h4>
+			<p v-html="msg2"></p>
+			<div>{{ msg2 }}</div>
+			<div v-text="msg2" ></div>
+			<div v-html="msg2"></div>
+			<input type="button" value="提交" title="mytitle">
+			<input type="button" value="提交" v-bind:title="mytitle">
+			<input type="button" value="提交" :title="mytitle">
+			<input type="button" value="提交" v-on:click="show">
+			<input type="button" value="提交" @click="show">
+			<hr>
+			<input type="button" value="动起来" @click="lang">
+			<input type="button" value="低调" @click="stop">
+			<p>{{msg3}}</p>
+		</div>
+		<script src="lib/vue-2.4.0.js">
+		</script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:'#app',
+				data:{
+					msg:'动起来，动起来。。。。。。',
+					msg2:'<h1>大大的高h1</h1>',
+					mytitle:'这是自己定义的title',
+					msg3:'动起来，动起来。。。。。1111111111111111',
+					intervalId: null
+				},
+				methods:{
+					show: function(){
+						alert('hello')
+					},
+					lang() {
+						if(this.intervalId != null ) return;
+						this.intervalId = setInterval( () => {
+							var start = this.msg3.substring(0,1)
+							var end =this.msg3.substring(1)
+							this.msg3 = end + start
+						},400)
+					},
+					stop(){
+						clearInterval(this.intervalId)
+						this.intervalId = null 
+					}
+				}
+
+			})
+		</script>
+	</body>
+
+</html>
