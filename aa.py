@@ -52,3 +52,8 @@ class UploadTest(unittest.TestCase):
 '''
 一次性操作
 '''
+
+'''
+mac  第一次操作
+
+'''
